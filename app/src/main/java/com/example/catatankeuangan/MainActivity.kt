@@ -12,6 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.invoke.ConstantCallSite
 import java.text.SimpleDateFormat
 import java.util.ArrayList
 import java.util.Calendar
@@ -26,7 +27,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        adapter = DataAdapter(arrayListOf())
+        // set adapter dan edit data
+        adapter = DataAdapter(arrayListOf(),
+            object : DataAdapter.OnAdapterListener {
+                override fun onClick(dataKeuangan: DataKeuangan) {
+                    intentEdit(Constant.TYPE_READ, dataKeuangan.id)
+                }
+            })
         this.setTanggal()
         binding.btnTambahActivity.setOnClickListener {
             startActivity(Intent(this, InputData::class.java))
@@ -82,10 +89,19 @@ class MainActivity : AppCompatActivity() {
         binding.listDataKeuangan.adapter = adapter
     }
 
+    private fun intentEdit(intent_type: Int, data_id: Int) {
+        startActivity(
+            Intent(this, EditActivity::class.java)
+                .putExtra("intent_type", intent_type)
+                .putExtra("data_id", data_id)
+        )
+    }
+
     fun setTanggal() {
         val calendar = Calendar.getInstance()
         val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
         val dateTime = simpleDateFormat.format(calendar.time)
         binding.txtTanggalSekarang.text = dateTime
     }
+
 }

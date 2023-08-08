@@ -19,7 +19,7 @@ interface DataDAO {
     @Delete
     suspend fun deleteData(dataKeuangan: DataKeuangan)
 
-    @Query("SELECT * FROM tb_keuangan")
+    @Query("SELECT * FROM tb_keuangan ORDER BY tanggal ASC")
     fun getAllData() : List<DataKeuangan>
 
     @Query("SELECT * FROM tb_keuangan WHERE kategori = 'Masuk'")

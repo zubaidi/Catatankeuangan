@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header_title_edit"
+        app:cardBackgroundColor="#317FDF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                app:srcCompat="@drawable/baseline_keyboard_backspace_24"/>
+            <TextView
+                android:id="@+id/headerJudulInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Kelola Data Keuangan"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:gravity="center"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RadioGroup
+        android:id="@+id/rgkategoriPemasukkan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/header_title_edit"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:checkedButton="@id/rbMasuk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <RadioButton
+            android:id="@+id/rbMasuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:textSize="16dp"
+            />
+        <RadioButton
+            android:id="@+id/rbKeluar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keluar"
+            android:textSize="16dp"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/nomTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jumlah"
+        android:textSize="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgkategoriPemasukkan"/>
+
+    <EditText
+        android:id="@+id/txtInputNominal"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="24dp"
+        android:inputType="number"
+        android:background="@drawable/border_input"
+        android:paddingLeft="10dp"
+        android:textSize="16dp"
+        android:hint="000000"
+        app:layout_constraintStart_toStartOf="@+id/txtInputKeterangan"
+        app:layout_constraintTop_toTopOf="@id/nomTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/nomTitle"/>
+
+    <TextView
+        android:id="@+id/nomKeterangan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keterangan"
+        android:textSize="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nomTitle"/>
+
+    <EditText
+        android:id="@+id/txtInputKeterangan"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="24dp"
+        android:paddingLeft="10dp"
+        android:textSize="16dp"
+        android:hint="Keterangan pengeluaran"
+        android:background="@drawable/border_input"
+        app:layout_constraintTop_toTopOf="@id/nomKeterangan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/nomTitle"
+        app:layout_constraintBottom_toBottomOf="@id/nomKeterangan"/>
+
+    <TextView
+        android:id="@+id/nomTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"
+        android:textSize="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nomKeterangan"/>
+
+    <EditText
+        android:id="@+id/txtInputTanggal"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:inputType="date"
+        android:paddingLeft="10dp"
+        android:textSize="16dp"
+        android:hint="tanggal"
+        android:background="@drawable/border_input"
+        app:layout_constraintTop_toTopOf="@id/nomTanggal"
+        app:layout_constraintBottom_toBottomOf="@id/nomTanggal"
+        app:layout_constraintStart_toStartOf="@id/txtInputKeterangan"
+        app:layout_constraintEnd_toEndOf="@id/txtInputKeterangan"/>
+
+    <Button
+        android:id="@+id/btnSimpan"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="SIMPAN PERUBAHAN"
+        android:textSize="16dp"
+        android:backgroundTint="#009688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputTanggal"/>
+
+    <Button
+        android:id="@+id/btnHapus"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="HAPUS DATA"
+        android:textSize="16dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSimpan"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
