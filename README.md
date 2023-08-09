@@ -1,5 +1,7 @@
 # Catatankeuangan
-Projek mobile kelas xii pplg smksa
+Projek latihan kelas prmrograman mobile xii pplg SMK Syafi'i Akrom pekalongan.
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/914b12fc-9caa-4369-8b2e-0809f115bdcb)
+
 
 ## Graddle Version
 Android Gradle Plugin Version : 8.1.0, Android Gradle Version : 8.0
