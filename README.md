@@ -1,7 +1,11 @@
 # Catatankeuangan
 Projek latihan kelas prmrograman mobile xii pplg SMK Syafi'i Akrom pekalongan.
-![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/914b12fc-9caa-4369-8b2e-0809f115bdcb)
-
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/ced1982f-5f9e-463c-a9ec-36f462b32183)
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/67157227-39dc-49e6-84e1-5cfc4ad87bfb)
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/c66739c9-77a6-4b7c-9c23-befcecfbbf15)
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/258bceeb-e4c5-4c79-8f44-c591a0c81f39)
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/b2283648-942d-4a63-af4a-3440313a9913)
+![image](https://github.com/zubaidi/Catatankeuangan/assets/5498861/951a8c21-f90c-4ef9-b526-8976c05c2f78)
 
 ## Graddle Version
 Android Gradle Plugin Version : 8.1.0, Android Gradle Version : 8.0
