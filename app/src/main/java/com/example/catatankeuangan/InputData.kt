@@ -20,6 +20,7 @@ class InputData : AppCompatActivity() {
     private lateinit var bindInput: ActivityInputDataBinding
     private val db by lazy { DataDB(this) }
     private lateinit var adapterData : DataAdapter
+    private var dataId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,6 +78,7 @@ class InputData : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             db.dataDAO().insertData(
                 DataKeuangan(
+                    dataId,
                     bindInput.txtInputKeterangan.text.toString(),
                     ketNom,
                     bindInput.txtInputNominal.text.toString().toInt(),

@@ -115,8 +115,8 @@ class MainActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch {
                     db.dataDAO().deleteData(dataKeuangan)
                     dialogInterface.dismiss()
-                    setLayoutData()
                 }
+                setLayoutData()
             }
         }
         dialog.show()

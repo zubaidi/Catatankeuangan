@@ -154,18 +154,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInputTanggal"/>
 
-    <Button
-        android:id="@+id/btnHapus"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:text="HAPUS DATA"
-        android:textSize="16dp"
-        android:backgroundTint="#F44336"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSimpan"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

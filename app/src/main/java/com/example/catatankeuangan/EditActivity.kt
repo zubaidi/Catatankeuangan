@@ -27,6 +27,9 @@ class EditActivity : AppCompatActivity() {
             finish()
         }
         this.getDataKeuangan()
+        bindEdit.btnSimpan.setOnClickListener {
+            this.editData()
+        }
     }
 
     private fun getDataKeuangan() {
@@ -41,6 +44,27 @@ class EditActivity : AppCompatActivity() {
             } else {
                 bindEdit.rbKeluar.isChecked
             }
+        }
+    }
+
+    private fun editData() {
+        var ketNom = ""
+        if (bindEdit.rbMasuk.isChecked) {
+            ketNom = "Masuk"
+        } else {
+            ketNom = "Keluar"
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            db.dataDAO().updateData(
+                DataKeuangan(
+                    dataId,
+                    bindEdit.txtInputKeterangan.text.toString(),
+                    ketNom,
+                    bindEdit.txtInputNominal.text.toString().toInt(),
+                    bindEdit.txtInputTanggal.text.toString()
+                )
+            )
+            finish()
         }
     }
 }
