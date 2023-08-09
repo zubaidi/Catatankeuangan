@@ -1,8 +1,10 @@
 package com.example.catatankeuangan
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.catatankeuangan.adapter.DataAdapter
 import com.example.catatankeuangan.database.DataDB
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             object : DataAdapter.OnAdapterListener {
                 override fun onClick(dataKeuangan: DataKeuangan) {
                     intentEdit(Constant.TYPE_READ, dataKeuangan.id)
+                }
+
+                override fun onDelete(dataKeuangan: DataKeuangan) {
+                    deleteAlert(dataKeuangan)
                 }
             })
         this.setTanggal()
@@ -95,6 +101,25 @@ class MainActivity : AppCompatActivity() {
                 .putExtra("intent_type", intent_type)
                 .putExtra("data_id", data_id)
         )
+    }
+
+    private fun deleteAlert(dataKeuangan: DataKeuangan) {
+        val dialog = AlertDialog.Builder(this)
+        dialog.apply {
+            setTitle("Konfirmasi hapus data")
+            setMessage("Yakin akan hapus data ${ dataKeuangan.keterangan }?")
+            setNegativeButton("Batal") { dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.dismiss()
+            }
+            setPositiveButton("Hapus") { dialogInterface: DialogInterface, i: Int ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    db.dataDAO().deleteData(dataKeuangan)
+                    dialogInterface.dismiss()
+                    setLayoutData()
+                }
+            }
+        }
+        dialog.show()
     }
 
     fun setTanggal() {

@@ -1,9 +1,13 @@
 package com.example.catatankeuangan
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.catatankeuangan.database.DataDB
+import com.example.catatankeuangan.database.DataKeuangan
 import com.example.catatankeuangan.databinding.ActivityEditBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

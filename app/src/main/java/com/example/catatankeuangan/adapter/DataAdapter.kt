@@ -19,6 +19,7 @@ class DataAdapter(var list: ArrayList<DataKeuangan>, var listener:OnAdapterListe
         var dataSaldoKeterangan = itemView.findViewById<TextView>(R.id.txtDataSaldoKet)
         var dataTanggal = itemView.findViewById<TextView>(R.id.txtDataTanggal)
         var icEdit = itemView.findViewById<ImageView>(R.id.icEditData)
+        var icDelete = itemView.findViewById<ImageView>(R.id.icDeleteData)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataHolder {
@@ -43,6 +44,9 @@ class DataAdapter(var list: ArrayList<DataKeuangan>, var listener:OnAdapterListe
         holder.icEdit.setOnClickListener {
             listener.onClick(list[position])
         }
+        holder.icDelete.setOnClickListener {
+            listener.onDelete(list[position])
+        }
     }
 
     override fun getItemCount(): Int {
@@ -56,6 +60,7 @@ class DataAdapter(var list: ArrayList<DataKeuangan>, var listener:OnAdapterListe
 
     interface OnAdapterListener {
         fun onClick(dataKeuangan: DataKeuangan)
+        fun onDelete(dataKeuangan: DataKeuangan)
     }
 
 }
