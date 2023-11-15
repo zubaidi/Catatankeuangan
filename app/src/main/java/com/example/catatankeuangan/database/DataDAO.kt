@@ -30,4 +30,10 @@ interface DataDAO {
 
     @Query("SELECT * FROM tb_keuangan WHERE id =:data_id")
     fun getAllDataByID(data_id:Int) : List<DataKeuangan>
+
+    @Query("SELECT SUM(nominal) FROM tb_keuangan WHERE kategori = 'Masuk'")
+    fun getTotalMasuk() : Int
+
+    @Query("SELECT SUM(nominal) FROM tb_keuangan WHERE kategori = 'Keluar'")
+    fun getTotalKeluar() : Int
 }

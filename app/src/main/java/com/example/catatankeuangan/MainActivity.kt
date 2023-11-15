@@ -2,6 +2,7 @@ package com.example.catatankeuangan
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -41,17 +42,30 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         this.setTanggal()
+        binding.btnTampilSemua.setBackgroundColor(Color.parseColor("#009688"))
+        binding.btnPengeluaran.setBackgroundColor(Color.parseColor("#F44336"))
+        binding.btnPemasukan.setBackgroundColor(Color.parseColor("#F44336"))
         binding.btnTambahActivity.setOnClickListener {
             startActivity(Intent(this, InputData::class.java))
         }
         binding.btnPemasukan.setOnClickListener {
             this.setLayoutDataMasuk()
+            binding.btnPengeluaran.setBackgroundColor(Color.parseColor("#F44336"))
+            binding.btnPemasukan.setBackgroundColor(Color.parseColor("#009688"))
+            binding.btnTampilSemua.setBackgroundColor(Color.parseColor("#F44336"))
         }
         binding.btnPengeluaran.setOnClickListener {
             this.setLayoutDataKeluar()
+            binding.btnPengeluaran.setBackgroundColor(Color.parseColor("#009688"))
+            binding.btnPemasukan.setBackgroundColor(Color.parseColor("#F44336"))
+            binding.btnTampilSemua.setBackgroundColor(Color.parseColor("#F44336"))
         }
         binding.btnTampilSemua.setOnClickListener {
-            this.setLayoutData() }
+            this.setLayoutData()
+            binding.btnPengeluaran.setBackgroundColor(Color.parseColor("#F44336"))
+            binding.btnPemasukan.setBackgroundColor(Color.parseColor("#F44336"))
+            binding.btnTampilSemua.setBackgroundColor(Color.parseColor("#009688"))
+        }
     }
 
     override fun onResume() {
@@ -107,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         val dialog = AlertDialog.Builder(this)
         dialog.apply {
             setTitle("Konfirmasi hapus data")
-            setMessage("Yakin akan hapus data ${ dataKeuangan.keterangan }?")
+            setMessage("Yakin akan hapus data tanggal ${ dataKeuangan.tanggal }?")
             setNegativeButton("Batal") { dialogInterface: DialogInterface, i: Int ->
                 dialogInterface.dismiss()
             }
